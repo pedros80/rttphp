@@ -1,0 +1,22 @@
+name: Tests
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  nrephp-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+    - uses: actions/checkout@v3
+    - name: Setup Test Environment
+      run: composer install
+    - name: Run Unit tests
+      env:
+        APP_ENV: testing
+      run: vendor/bin/phpunit

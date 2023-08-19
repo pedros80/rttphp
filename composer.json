@@ -1,0 +1,47 @@
+{
+    "name": "pedros80/rttphp",
+    "description": "php wrapper for RealTimeTrains API",
+    "authors": [
+        {
+            "name": "Peter Somerville",
+            "email": "peterwsomerville@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/pedros80/stomp-php.git"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pedros80\\RTTphp\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "Tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --stop-on-failure",
+        "format": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --allow-risky=yes",
+        "stan": "php -d memory_limit=-1 vendor/bin/phpstan analyse --configuration ./phpstan-config.neon"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.12",
+        "jangregor/phpstan-prophecy": "^1.0",
+        "phpspec/prophecy-phpunit": "^2.0",
+        "phpstan/phpstan": "^1.8",
+        "phpunit/phpunit": "^9.5"
+    }
+}
