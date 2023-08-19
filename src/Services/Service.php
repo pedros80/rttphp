@@ -7,6 +7,7 @@ use GuzzleHttp\Exception\ClientException;
 use Pedros80\RTTphp\Exceptions\InvalidDateFormat;
 use Pedros80\RTTphp\Exceptions\InvalidTimeFormat;
 use Pedros80\RTTphp\Exceptions\ServiceNotFound;
+use stdClass;
 
 abstract class Service
 {
@@ -15,12 +16,12 @@ abstract class Service
     ) {
     }
 
-    protected function get(string $url): array
+    protected function get(string $url): stdClass
     {
         try {
             $response = $this->client->get($url);
 
-            return json_decode($response->getBody(), true);
+            return json_decode($response->getBody());
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw ServiceNotFound::fromUrl($url);

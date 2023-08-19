@@ -7,6 +7,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Pedros80\RTTphp\Exceptions\InvalidDateFormat;
+use Pedros80\RTTphp\Exceptions\InvalidServiceIdFormat;
 use Pedros80\RTTphp\Exceptions\ServiceNotFound;
 use Pedros80\RTTphp\Services\ServiceInformationService;
 use PHPUnit\Framework\TestCase;
@@ -19,9 +20,18 @@ final class ServiceInformationServiceTest extends TestCase
     public function testSearchServiceHitsCorrectEndpoint(): void
     {
         $client = $this->prophesize(Client::class);
-        $client->get('json/service/serviceId/2023/08/19')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+        $client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
         $service = new ServiceInformationService($client->reveal());
-        $service->search('serviceId', '2023/08/19');
+        $service->search('Y29995', '2023/08/19');
+    }
+
+    public function testSearchInvalidServiceIdThrowsException(): void
+    {
+        $this->expectException(InvalidServiceIdFormat::class);
+        $this->expectExceptionMessage("'INVALID' is not a valid service id - [A-Z][0-9]{5}");
+
+        $service = new ServiceInformationService($this->prophesize(Client::class)->reveal());
+        $service->search('INVALID', '2023/08/19');
     }
 
     public function testSearchServiceWithInvalidDateThrowsException(): void
@@ -30,25 +40,25 @@ final class ServiceInformationServiceTest extends TestCase
         $this->expectExceptionMessage("'2023-08-19' is not a valid date - yyyy/mm/dd");
 
         $service = new ServiceInformationService($this->prophesize(Client::class)->reveal());
-        $service->search('serviceId', '2023-08-19');
+        $service->search('Y29995', '2023-08-19');
     }
 
     public function testSearchUnknownStationThrowsException(): void
     {
         $this->expectException(ServiceNotFound::class);
-        $this->expectExceptionMessage("Could not find service from 'json/service/XXXXXX/2023/08/19'. Please check url.");
+        $this->expectExceptionMessage("Could not find service from 'json/service/Y29995/2023/08/19'. Please check url.");
 
         $client = $this->prophesize(Client::class);
-        $client->get('json/service/XXXXXX/2023/08/19')->shouldBeCalled()->willThrow(
+        $client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willThrow(
             new ClientException(
                 'error message',
-                new Request('get', 'json/service/XXXXXX/2023/08/12'),
+                new Request('get', 'json/service/Y29995/2023/08/12'),
                 new Response(404, [], '{}')
             )
         );
         $service = new ServiceInformationService($client->reveal());
         $service->search(
-            serviceId: 'XXXXXX',
+            serviceId: 'Y29995',
             date: '2023/08/19'
         );
     }
