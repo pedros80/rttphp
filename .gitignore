@@ -3,6 +3,3 @@ Tests/Feature/*
 vendor/
 .phpdoc/
 .DS_Store
-data/xml
-data/zip
-data/stations.xml.gz
