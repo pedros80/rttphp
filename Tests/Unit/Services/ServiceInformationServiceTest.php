@@ -49,12 +49,22 @@ final class ServiceInformationServiceTest extends TestCase
         $this->expectExceptionMessage("Could not find service from 'json/service/Y29995/2023/08/19'. Please check url.");
 
         $client = $this->prophesize(Client::class);
-        $client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willThrow(
-            new ClientException(
-                'error message',
-                new Request('get', 'json/service/Y29995/2023/08/12'),
-                new Response(404, [], '{}')
-            )
+        $client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(new Response(404, [], '{}'));
+        $service = new ServiceInformationService($client->reveal());
+        $service->search(
+            serviceId: 'Y29995',
+            date: '2023/08/19'
+        );
+    }
+
+    public function testSearchThirdPartyErrorThrowsException(): void
+    {
+        $this->expectException(ServiceNotFound::class);
+        $this->expectExceptionMessage("Could not find service from 'json/service/Y29995/2023/08/19'. Please check url.");
+
+        $client = $this->prophesize(Client::class);
+        $client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(
+            new Response(200, [], '{"error":"Unknown error"}')
         );
         $service = new ServiceInformationService($client->reveal());
         $service->search(

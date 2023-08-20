@@ -3,7 +3,6 @@
 namespace Pedros80\RTTphp\Services;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
 use Pedros80\RTTphp\Exceptions\InvalidDateFormat;
 use Pedros80\RTTphp\Exceptions\InvalidTimeFormat;
 use Pedros80\RTTphp\Exceptions\ServiceNotFound;
@@ -18,17 +17,15 @@ abstract class Service
 
     protected function get(string $url): stdClass
     {
-        try {
-            $response = $this->client->get($url);
+        $response = $this->client->get($url);
+        $status = $response->getStatusCode();
+        $body   = json_decode($response->getBody());
 
-            return json_decode($response->getBody());
-        } catch (ClientException $e) {
-            if ($e->getResponse()->getStatusCode() === 404) {
-                throw ServiceNotFound::fromUrl($url);
-            }
+        if ($status === 404 || isset($body->error)) {
+            throw ServiceNotFound::fromUrl($url);
         }
 
-        return [];
+        return $body;
     }
 
     protected function isDateFormatValid(string $date): bool

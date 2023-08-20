@@ -2,9 +2,8 @@
 
 namespace Tests\Unit\Services;
 
+use Exception;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Pedros80\RTTphp\Exceptions\InvalidDateFormat;
 use Pedros80\RTTphp\Exceptions\InvalidTimeFormat;
@@ -135,16 +134,35 @@ final class LocationServiceTest extends TestCase
         $this->expectExceptionMessage("Could not find service from 'json/search/XXXXXX'. Please check url.");
 
         $client = $this->prophesize(Client::class);
-        $client->get('json/search/XXXXXX')->shouldBeCalled()->willThrow(
-            new ClientException(
-                'error message',
-                new Request('get', 'json/search/XXXXXX'),
-                new Response(404, [], '{}')
-            )
+        $client->get('json/search/XXXXXX')->shouldBeCalled()->willReturn(new Response(404, [], '{}'));
+        $service = new LocationService($client->reveal());
+        $service->search(
+            station: 'XXXXXX',
+        );
+    }
+
+    public function testSearchThirdPartyErrorThrowsException(): void
+    {
+        $this->expectException(ServiceNotFound::class);
+        $this->expectExceptionMessage("Could not find service from 'json/search/XXXXXX'. Please check url.");
+
+        $client = $this->prophesize(Client::class);
+        $client->get('json/search/XXXXXX')->shouldBeCalled()->willReturn(
+            new Response(200, [], '{"error":"Unknown error"}')
         );
         $service = new LocationService($client->reveal());
         $service->search(
             station: 'XXXXXX',
         );
+    }
+
+    public function testUnknownErrorThrowsException(): void
+    {
+        $this->expectException(Exception::class);
+
+        $client = $this->prophesize(Client::class);
+        $client->get('json/search/KDY')->shouldBeCalled()->willThrow(new Exception('error', 500));
+        $service = new LocationService($client->reveal());
+        $service->search(station: 'KDY');
     }
 }
