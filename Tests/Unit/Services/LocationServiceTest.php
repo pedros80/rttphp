@@ -24,12 +24,28 @@ final class LocationServiceTest extends TestCase
         $service->search('KDY');
     }
 
+    public function testSearchStationArrivalsHitsCorrectEndpoint(): void
+    {
+        $client = $this->prophesize(Client::class);
+        $client->get('json/search/KDY/arrivals')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+        $service = new LocationService($client->reveal());
+        $service->search(station: 'KDY', arrivals: true);
+    }
+
     public function testSearchStationWithToStationHitsCorrectEndpoint(): void
     {
         $client = $this->prophesize(Client::class);
         $client->get('json/search/KDY/to/DAM')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
         $service = new LocationService($client->reveal());
         $service->search('KDY', 'DAM');
+    }
+
+    public function testSearchStationWithToStationArrivalsHitsCorrectEndpoint(): void
+    {
+        $client = $this->prophesize(Client::class);
+        $client->get('json/search/KDY/to/DAM/arrivals')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+        $service = new LocationService($client->reveal());
+        $service->search(station: 'KDY', toStation: 'DAM', arrivals: true);
     }
 
     public function testSearchStationWithInvalidDateThrowsException(): void
