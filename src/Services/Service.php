@@ -18,8 +18,8 @@ abstract class Service
     protected function get(string $url): stdClass
     {
         $response = $this->client->get($url);
-        $status = $response->getStatusCode();
-        $body   = json_decode($response->getBody());
+        $status   = $response->getStatusCode();
+        $body     = json_decode($response->getBody());
 
         if ($status === 404 || isset($body->error)) {
             throw ServiceNotFound::fromUrl($url);

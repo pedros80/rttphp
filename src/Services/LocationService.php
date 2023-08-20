@@ -7,8 +7,13 @@ use stdClass;
 
 final class LocationService extends Service
 {
-    public function search(string $station, ?string $toStation=null, ?string $date=null, ?string $time=null, bool $arrivals=false): stdClass
-    {
+    public function search(
+        string $station,
+        ?string $toStation=null,
+        ?string $date=null,
+        ?string $time=null,
+        bool $arrivals=false
+    ): stdClass {
         $url = "json/search/{$station}";
 
         if ($toStation) {
