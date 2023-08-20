@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1692567900">
-  <project timestamp="1692567900">
+<coverage generated="1692572475">
+  <project timestamp="1692572475">
     <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/InvalidDateFormat.php">
       <class name="Pedros80\RTTphp\Exceptions\InvalidDateFormat" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
@@ -35,10 +35,10 @@
       <class name="Pedros80\RTTphp\Exceptions\ServiceNotFound" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="9" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="2"/>
-      <line num="11" type="stmt" count="2"/>
-      <line num="14" type="method" name="fromUrl" visibility="public" complexity="1" crap="1" count="2"/>
-      <line num="16" type="stmt" count="2"/>
+      <line num="9" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="4"/>
+      <line num="11" type="stmt" count="4"/>
+      <line num="14" type="method" name="fromUrl" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="16" type="stmt" count="4"/>
       <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/rttphp/rttphp/src/Factories/ServicesFactory.php">
@@ -66,58 +66,58 @@
       <class name="Pedros80\RTTphp\Services\LocationService" namespace="global">
         <metrics complexity="7" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="9" elements="11" coveredelements="9"/>
       </class>
-      <line num="10" type="method" name="search" visibility="public" complexity="7" crap="7.05" count="11"/>
-      <line num="12" type="stmt" count="11"/>
-      <line num="14" type="stmt" count="11"/>
+      <line num="10" type="method" name="search" visibility="public" complexity="7" crap="7.05" count="13"/>
+      <line num="12" type="stmt" count="13"/>
+      <line num="14" type="stmt" count="13"/>
       <line num="15" type="stmt" count="4"/>
-      <line num="18" type="stmt" count="11"/>
+      <line num="18" type="stmt" count="13"/>
       <line num="19" type="stmt" count="5"/>
       <line num="21" type="stmt" count="5"/>
       <line num="22" type="stmt" count="2"/>
-      <line num="26" type="stmt" count="9"/>
+      <line num="26" type="stmt" count="11"/>
       <line num="27" type="stmt" count="0"/>
-      <line num="30" type="stmt" count="9"/>
+      <line num="30" type="stmt" count="11"/>
       <metrics loc="33" ncloc="33" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="9" elements="11" coveredelements="9"/>
     </file>
     <file name="/home/runner/work/rttphp/rttphp/src/Services/Service.php">
       <class name="Pedros80\RTTphp\Services\Service" namespace="global">
-        <metrics complexity="8" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="12" elements="17" coveredelements="15"/>
+        <metrics complexity="8" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="17" coveredelements="17"/>
       </class>
-      <line num="14" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="17"/>
-      <line num="17" type="stmt" count="17"/>
-      <line num="19" type="method" name="get" visibility="protected" complexity="3" crap="3.04" count="11"/>
-      <line num="22" type="stmt" count="11"/>
-      <line num="24" type="stmt" count="9"/>
-      <line num="25" type="stmt" count="2"/>
-      <line num="26" type="stmt" count="2"/>
-      <line num="27" type="stmt" count="2"/>
-      <line num="31" type="stmt" count="0"/>
-      <line num="34" type="method" name="isDateFormatValid" visibility="protected" complexity="2" crap="2" count="9"/>
-      <line num="36" type="stmt" count="9"/>
-      <line num="37" type="stmt" count="2"/>
-      <line num="40" type="stmt" count="7"/>
-      <line num="43" type="method" name="isTimeFormatValid" visibility="protected" complexity="2" crap="2" count="3"/>
-      <line num="45" type="stmt" count="3"/>
-      <line num="46" type="stmt" count="1"/>
-      <line num="49" type="stmt" count="2"/>
-      <metrics loc="52" ncloc="52" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="12" elements="17" coveredelements="15"/>
+      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="20"/>
+      <line num="16" type="stmt" count="20"/>
+      <line num="18" type="method" name="get" visibility="protected" complexity="3" crap="3" count="14"/>
+      <line num="20" type="stmt" count="14"/>
+      <line num="21" type="stmt" count="13"/>
+      <line num="22" type="stmt" count="13"/>
+      <line num="24" type="stmt" count="13"/>
+      <line num="25" type="stmt" count="4"/>
+      <line num="28" type="stmt" count="9"/>
+      <line num="31" type="method" name="isDateFormatValid" visibility="protected" complexity="2" crap="2" count="10"/>
+      <line num="33" type="stmt" count="10"/>
+      <line num="34" type="stmt" count="2"/>
+      <line num="37" type="stmt" count="8"/>
+      <line num="40" type="method" name="isTimeFormatValid" visibility="protected" complexity="2" crap="2" count="3"/>
+      <line num="42" type="stmt" count="3"/>
+      <line num="43" type="stmt" count="1"/>
+      <line num="46" type="stmt" count="2"/>
+      <metrics loc="49" ncloc="49" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="17" coveredelements="17"/>
     </file>
     <file name="/home/runner/work/rttphp/rttphp/src/Services/ServiceInformationService.php">
       <class name="Pedros80\RTTphp\Services\ServiceInformationService" namespace="global">
         <metrics complexity="4" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
       </class>
-      <line num="11" type="method" name="search" visibility="public" complexity="2" crap="2" count="4"/>
-      <line num="13" type="stmt" count="4"/>
-      <line num="15" type="stmt" count="3"/>
-      <line num="17" type="stmt" count="3"/>
-      <line num="18" type="stmt" count="2"/>
-      <line num="21" type="stmt" count="2"/>
-      <line num="24" type="method" name="isServiceIdValid" visibility="private" complexity="2" crap="2" count="4"/>
-      <line num="26" type="stmt" count="4"/>
+      <line num="11" type="method" name="search" visibility="public" complexity="2" crap="2" count="5"/>
+      <line num="13" type="stmt" count="5"/>
+      <line num="15" type="stmt" count="4"/>
+      <line num="17" type="stmt" count="4"/>
+      <line num="18" type="stmt" count="3"/>
+      <line num="21" type="stmt" count="3"/>
+      <line num="24" type="method" name="isServiceIdValid" visibility="private" complexity="2" crap="2" count="5"/>
+      <line num="26" type="stmt" count="5"/>
       <line num="27" type="stmt" count="1"/>
-      <line num="30" type="stmt" count="3"/>
+      <line num="30" type="stmt" count="4"/>
       <metrics loc="33" ncloc="33" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
     </file>
-    <metrics files="8" loc="235" ncloc="235" classes="8" methods="18" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="51" coveredstatements="49" elements="69" coveredelements="65"/>
+    <metrics files="8" loc="232" ncloc="232" classes="8" methods="18" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="51" coveredstatements="50" elements="69" coveredelements="67"/>
   </project>
 </coverage>
