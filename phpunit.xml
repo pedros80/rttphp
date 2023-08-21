@@ -6,7 +6,6 @@
     </include>
     <exclude>
       <directory suffix=".php">Tests</directory>
-      <directory suffix=".php">src/Commands</directory>
     </exclude>
   </coverage>
   <testsuites>

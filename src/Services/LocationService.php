@@ -14,24 +14,24 @@ final class LocationService extends Service
         ?string $time=null,
         bool $arrivals=false
     ): stdClass {
-        $url = "json/search/{$station}";
+        $this->url = ["json/search/{$station}"];
 
         if ($toStation) {
-            $url = "{$url}/to/{$toStation}";
+            $this->url[] = "to/{$toStation}";
         }
 
         if ($date && $this->isDateFormatValid($date)) {
-            $url = "{$url}/{$date}";
+            $this->url[] = $date;
 
             if ($time && $this->isTimeFormatValid($time)) {
-                $url = "{$url}/{$time}";
+                $this->url[] = $time;
             }
         }
 
         if ($arrivals) {
-            $url = "{$url}/arrivals";
+            $this->url[] = 'arrivals';
         }
 
-        return $this->get($url);
+        return $this->get();
     }
 }

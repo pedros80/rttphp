@@ -12,13 +12,13 @@ final class ServiceInformationService extends Service
     {
         $this->isServiceIdValid($serviceId);
 
-        $url = "json/service/{$serviceId}";
+        $this->url = ["json/service/{$serviceId}"];
 
         if ($this->isDateFormatValid($date)) {
-            $url = "{$url}/$date";
+            $this->url[] = $date;
         }
 
-        return $this->get($url);
+        return $this->get();
     }
 
     private function isServiceIdValid(string $serviceId): bool

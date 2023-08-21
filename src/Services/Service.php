@@ -10,13 +10,16 @@ use stdClass;
 
 abstract class Service
 {
+    protected array $url = [];
+
     public function __construct(
         protected Client $client
     ) {
     }
 
-    protected function get(string $url): stdClass
+    protected function get(): stdClass
     {
+        $url      = $this->getUrl();
         $response = $this->client->get($url);
         $status   = $response->getStatusCode();
         $body     = json_decode($response->getBody());
@@ -26,6 +29,11 @@ abstract class Service
         }
 
         return $body;
+    }
+
+    protected function getUrl(): string
+    {
+        return implode('/', $this->url);
     }
 
     protected function isDateFormatValid(string $date): bool
