@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1692573115">
-  <project timestamp="1692573115">
+<coverage generated="1692573420">
+  <project timestamp="1692573420">
     <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/InvalidDateFormat.php">
       <class name="Pedros80\RTTphp\Exceptions\InvalidDateFormat" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
@@ -67,17 +67,17 @@
         <metrics complexity="7" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="11" coveredelements="11"/>
       </class>
       <line num="10" type="method" name="search" visibility="public" complexity="7" crap="7" count="15"/>
-      <line num="12" type="stmt" count="15"/>
-      <line num="14" type="stmt" count="15"/>
-      <line num="15" type="stmt" count="5"/>
-      <line num="18" type="stmt" count="15"/>
-      <line num="19" type="stmt" count="5"/>
-      <line num="21" type="stmt" count="5"/>
-      <line num="22" type="stmt" count="2"/>
-      <line num="26" type="stmt" count="13"/>
+      <line num="17" type="stmt" count="15"/>
+      <line num="19" type="stmt" count="15"/>
+      <line num="20" type="stmt" count="5"/>
+      <line num="23" type="stmt" count="15"/>
+      <line num="24" type="stmt" count="5"/>
+      <line num="26" type="stmt" count="5"/>
       <line num="27" type="stmt" count="2"/>
-      <line num="30" type="stmt" count="13"/>
-      <metrics loc="33" ncloc="33" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="11" coveredelements="11"/>
+      <line num="31" type="stmt" count="13"/>
+      <line num="32" type="stmt" count="2"/>
+      <line num="35" type="stmt" count="13"/>
+      <metrics loc="38" ncloc="38" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="11" coveredelements="11"/>
     </file>
     <file name="/home/runner/work/rttphp/rttphp/src/Services/Service.php">
       <class name="Pedros80\RTTphp\Services\Service" namespace="global">
@@ -118,6 +118,6 @@
       <line num="30" type="stmt" count="4"/>
       <metrics loc="33" ncloc="33" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
     </file>
-    <metrics files="8" loc="232" ncloc="232" classes="8" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="51" coveredstatements="51" elements="69" coveredelements="69"/>
+    <metrics files="8" loc="237" ncloc="237" classes="8" methods="18" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="51" coveredstatements="51" elements="69" coveredelements="69"/>
   </project>
 </coverage>
