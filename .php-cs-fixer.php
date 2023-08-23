@@ -2,7 +2,6 @@
 
 $finder = PhpCsFixer\Finder::create()
     ->in([
-        // __DIR__ . '/build',
         __DIR__ . '/src',
     ])
     ->name('*.php')
