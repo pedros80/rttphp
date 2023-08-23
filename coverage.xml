@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1692661464">
-  <project timestamp="1692661464">
+<coverage generated="1692822446">
+  <project timestamp="1692822446">
     <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/InvalidDateFormat.php">
       <class name="Pedros80\RTTphp\Exceptions\InvalidDateFormat" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
