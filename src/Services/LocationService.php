@@ -2,10 +2,11 @@
 
 namespace Pedros80\RTTphp\Services;
 
+use Pedros80\RTTphp\Contracts\Locations;
 use Pedros80\RTTphp\Services\Service;
 use stdClass;
 
-final class LocationService extends Service
+final class LocationService extends Service implements Locations
 {
     public function search(
         string $station,
