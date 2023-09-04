@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1693604164">
-  <project timestamp="1693604164">
+<coverage generated="1693869421">
+  <project timestamp="1693869421">
     <file name="/home/runner/work/rttphp/rttphp/src/Contracts/Locations.php">
       <metrics loc="17" ncloc="17" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/runner/work/rttphp/rttphp/src/Contracts/ServiceInformation.php">
+      <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/InvalidDateFormat.php">
       <class name="Pedros80\RTTphp\Exceptions\InvalidDateFormat" namespace="global">
@@ -112,18 +115,18 @@
       <class name="Pedros80\RTTphp\Services\ServiceInformationService" namespace="global">
         <metrics complexity="4" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
       </class>
-      <line num="11" type="method" name="search" visibility="public" complexity="2" crap="2" count="5"/>
-      <line num="13" type="stmt" count="5"/>
-      <line num="15" type="stmt" count="4"/>
-      <line num="17" type="stmt" count="4"/>
-      <line num="18" type="stmt" count="3"/>
-      <line num="21" type="stmt" count="3"/>
-      <line num="24" type="method" name="isServiceIdValid" visibility="private" complexity="2" crap="2" count="5"/>
-      <line num="26" type="stmt" count="5"/>
-      <line num="27" type="stmt" count="1"/>
-      <line num="30" type="stmt" count="4"/>
-      <metrics loc="33" ncloc="33" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
+      <line num="12" type="method" name="search" visibility="public" complexity="2" crap="2" count="5"/>
+      <line num="14" type="stmt" count="5"/>
+      <line num="16" type="stmt" count="4"/>
+      <line num="18" type="stmt" count="4"/>
+      <line num="19" type="stmt" count="3"/>
+      <line num="22" type="stmt" count="3"/>
+      <line num="25" type="method" name="isServiceIdValid" visibility="private" complexity="2" crap="2" count="5"/>
+      <line num="27" type="stmt" count="5"/>
+      <line num="28" type="stmt" count="1"/>
+      <line num="31" type="stmt" count="4"/>
+      <metrics loc="34" ncloc="34" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
     </file>
-    <metrics files="9" loc="263" ncloc="263" classes="8" methods="19" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="53" elements="72" coveredelements="72"/>
+    <metrics files="10" loc="275" ncloc="275" classes="8" methods="19" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="53" elements="72" coveredelements="72"/>
   </project>
 </coverage>
