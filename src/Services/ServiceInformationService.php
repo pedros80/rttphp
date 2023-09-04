@@ -2,11 +2,12 @@
 
 namespace Pedros80\RTTphp\Services;
 
+use Pedros80\RTTphp\Contracts\ServiceInformation;
 use Pedros80\RTTphp\Exceptions\InvalidServiceIdFormat;
 use Pedros80\RTTphp\Services\Service;
 use stdClass;
 
-final class ServiceInformationService extends Service
+final class ServiceInformationService extends Service implements ServiceInformation
 {
     public function search(string $serviceId, string $date): stdClass
     {
