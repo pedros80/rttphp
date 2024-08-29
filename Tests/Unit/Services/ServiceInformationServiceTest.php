@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Pedros80\RTTphp\Exceptions\InvalidDateFormat;
 use Pedros80\RTTphp\Exceptions\InvalidServiceIdFormat;
+use Pedros80\RTTphp\Exceptions\InvalidServiceResponse;
 use Pedros80\RTTphp\Exceptions\ServiceNotFound;
 use Pedros80\RTTphp\Services\ServiceInformationService;
 use PHPUnit\Framework\TestCase;
@@ -48,6 +49,20 @@ final class ServiceInformationServiceTest extends TestCase
 
         $client = $this->prophesize(Client::class);
         $client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(new Response(404, [], '{}'));
+        $service = new ServiceInformationService($client->reveal());
+        $service->search(
+            serviceId: 'Y29995',
+            date: '2023/08/19'
+        );
+    }
+
+    public function testServiceReturnsInvalidJsonThrowsException(): void
+    {
+        $this->expectException(InvalidServiceResponse::class);
+        $this->expectExceptionMessage('Invalid Service Response - could not decode to object');
+
+        $client = $this->prophesize(Client::class);
+        $client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(new Response(200, [], 'invalid-json'));
         $service = new ServiceInformationService($client->reveal());
         $service->search(
             serviceId: 'Y29995',
