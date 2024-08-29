@@ -8,8 +8,8 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "guzzlehttp/guzzle": "^7.7"
+        "php": "^8.3",
+        "guzzlehttp/guzzle": "^7.9"
     },
     "autoload": {
         "psr-4": {
@@ -36,6 +36,6 @@
         "jangregor/phpstan-prophecy": "^1.0",
         "phpspec/prophecy-phpunit": "^2.0",
         "phpstan/phpstan": "^1.8",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^11.0"
     }
 }

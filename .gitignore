@@ -3,3 +3,4 @@ Tests/Feature/*
 vendor/
 .phpdoc/
 .DS_Store
+.phpunit.cache/

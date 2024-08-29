@@ -4,12 +4,16 @@ namespace Pedros80\RTTphp\Services;
 
 use GuzzleHttp\Client;
 use Pedros80\RTTphp\Exceptions\InvalidDateFormat;
+use Pedros80\RTTphp\Exceptions\InvalidServiceResponse;
 use Pedros80\RTTphp\Exceptions\InvalidTimeFormat;
 use Pedros80\RTTphp\Exceptions\ServiceNotFound;
 use stdClass;
 
 abstract class Service
 {
+    /**
+     * @var string[]
+     */
     protected array $url = [];
 
     public function __construct(
@@ -22,7 +26,13 @@ abstract class Service
         $url      = $this->getUrl();
         $response = $this->client->get($url);
         $status   = $response->getStatusCode();
-        $body     = json_decode($response->getBody());
+
+        /** @var stdClass $body */
+        $body = json_decode($response->getBody(), false);
+
+        if (!is_object($body)) {
+            throw InvalidServiceResponse::new();
+        }
 
         if ($status === 404 || isset($body->error)) {
             throw ServiceNotFound::fromUrl($url);

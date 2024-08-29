@@ -3,8 +3,6 @@
 namespace Tests\Unit\Services;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Pedros80\RTTphp\Exceptions\InvalidDateFormat;
 use Pedros80\RTTphp\Exceptions\InvalidServiceIdFormat;
