@@ -1,132 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1693869421">
-  <project timestamp="1693869421">
+<coverage generated="1724966636">
+  <project timestamp="1724966636">
     <file name="/home/runner/work/rttphp/rttphp/src/Contracts/Locations.php">
       <metrics loc="17" ncloc="17" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/rttphp/rttphp/src/Contracts/ServiceInformation.php">
       <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/InvalidDateFormat.php">
-      <class name="Pedros80\RTTphp\Exceptions\InvalidDateFormat" namespace="global">
-        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
-      </class>
-      <line num="9" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="2"/>
-      <line num="11" type="stmt" count="2"/>
-      <line num="14" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="2"/>
-      <line num="16" type="stmt" count="2"/>
-      <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
-    </file>
-    <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/InvalidServiceIdFormat.php">
-      <class name="Pedros80\RTTphp\Exceptions\InvalidServiceIdFormat" namespace="global">
-        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
-      </class>
-      <line num="9" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="1"/>
-      <line num="11" type="stmt" count="1"/>
-      <line num="14" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="16" type="stmt" count="1"/>
-      <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
-    </file>
-    <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/InvalidTimeFormat.php">
-      <class name="Pedros80\RTTphp\Exceptions\InvalidTimeFormat" namespace="global">
-        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
-      </class>
-      <line num="9" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="1"/>
-      <line num="11" type="stmt" count="1"/>
-      <line num="14" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="16" type="stmt" count="1"/>
-      <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
-    </file>
-    <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/ServiceNotFound.php">
-      <class name="Pedros80\RTTphp\Exceptions\ServiceNotFound" namespace="global">
-        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
-      </class>
-      <line num="9" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="4"/>
-      <line num="11" type="stmt" count="4"/>
-      <line num="14" type="method" name="fromUrl" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="16" type="stmt" count="4"/>
-      <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
-    </file>
-    <file name="/home/runner/work/rttphp/rttphp/src/Factories/ServicesFactory.php">
-      <class name="Pedros80\RTTphp\Factories\ServicesFactory" namespace="global">
-        <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="15" coveredelements="15"/>
-      </class>
-      <line num="16" type="method" name="makeClient" visibility="private" complexity="1" crap="1" count="2"/>
-      <line num="18" type="stmt" count="2"/>
-      <line num="20" type="stmt" count="2"/>
-      <line num="21" type="stmt" count="2"/>
-      <line num="22" type="stmt" count="2"/>
-      <line num="23" type="stmt" count="2"/>
-      <line num="24" type="stmt" count="2"/>
-      <line num="25" type="stmt" count="2"/>
-      <line num="26" type="stmt" count="2"/>
-      <line num="27" type="stmt" count="2"/>
-      <line num="28" type="stmt" count="2"/>
-      <line num="31" type="method" name="makeLocationService" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="33" type="stmt" count="1"/>
-      <line num="36" type="method" name="makeServiceInformationService" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="38" type="stmt" count="1"/>
-      <metrics loc="41" ncloc="41" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="15" coveredelements="15"/>
-    </file>
-    <file name="/home/runner/work/rttphp/rttphp/src/Services/LocationService.php">
-      <class name="Pedros80\RTTphp\Services\LocationService" namespace="global">
-        <metrics complexity="7" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="11" coveredelements="11"/>
-      </class>
-      <line num="11" type="method" name="search" visibility="public" complexity="7" crap="7" count="15"/>
-      <line num="18" type="stmt" count="15"/>
-      <line num="20" type="stmt" count="15"/>
-      <line num="21" type="stmt" count="5"/>
-      <line num="24" type="stmt" count="15"/>
-      <line num="25" type="stmt" count="5"/>
-      <line num="27" type="stmt" count="5"/>
-      <line num="28" type="stmt" count="2"/>
-      <line num="32" type="stmt" count="13"/>
-      <line num="33" type="stmt" count="2"/>
-      <line num="36" type="stmt" count="13"/>
-      <metrics loc="39" ncloc="39" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="11" coveredelements="11"/>
-    </file>
-    <file name="/home/runner/work/rttphp/rttphp/src/Services/Service.php">
-      <class name="Pedros80\RTTphp\Services\Service" namespace="global">
-        <metrics complexity="9" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="20" coveredelements="20"/>
-      </class>
-      <line num="15" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="22"/>
-      <line num="18" type="stmt" count="22"/>
-      <line num="20" type="method" name="get" visibility="protected" complexity="3" crap="3" count="16"/>
-      <line num="22" type="stmt" count="16"/>
-      <line num="23" type="stmt" count="16"/>
-      <line num="24" type="stmt" count="15"/>
-      <line num="25" type="stmt" count="15"/>
-      <line num="27" type="stmt" count="15"/>
-      <line num="28" type="stmt" count="4"/>
-      <line num="31" type="stmt" count="11"/>
-      <line num="34" type="method" name="getUrl" visibility="protected" complexity="1" crap="1" count="16"/>
-      <line num="36" type="stmt" count="16"/>
-      <line num="39" type="method" name="isDateFormatValid" visibility="protected" complexity="2" crap="2" count="10"/>
-      <line num="41" type="stmt" count="10"/>
-      <line num="42" type="stmt" count="2"/>
-      <line num="45" type="stmt" count="8"/>
-      <line num="48" type="method" name="isTimeFormatValid" visibility="protected" complexity="2" crap="2" count="3"/>
-      <line num="50" type="stmt" count="3"/>
-      <line num="51" type="stmt" count="1"/>
-      <line num="54" type="stmt" count="2"/>
-      <metrics loc="57" ncloc="57" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="20" coveredelements="20"/>
-    </file>
-    <file name="/home/runner/work/rttphp/rttphp/src/Services/ServiceInformationService.php">
-      <class name="Pedros80\RTTphp\Services\ServiceInformationService" namespace="global">
-        <metrics complexity="4" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
-      </class>
-      <line num="12" type="method" name="search" visibility="public" complexity="2" crap="2" count="5"/>
-      <line num="14" type="stmt" count="5"/>
-      <line num="16" type="stmt" count="4"/>
-      <line num="18" type="stmt" count="4"/>
-      <line num="19" type="stmt" count="3"/>
-      <line num="22" type="stmt" count="3"/>
-      <line num="25" type="method" name="isServiceIdValid" visibility="private" complexity="2" crap="2" count="5"/>
-      <line num="27" type="stmt" count="5"/>
-      <line num="28" type="stmt" count="1"/>
-      <line num="31" type="stmt" count="4"/>
-      <metrics loc="34" ncloc="34" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
-    </file>
-    <metrics files="10" loc="275" ncloc="275" classes="8" methods="19" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="53" elements="72" coveredelements="72"/>
+    <package name="Pedros80\RTTphp\Exceptions">
+      <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/InvalidDateFormat.php">
+        <class name="Pedros80\RTTphp\Exceptions\InvalidDateFormat" namespace="Pedros80\RTTphp\Exceptions">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        </class>
+        <line num="9" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="2"/>
+        <line num="11" type="stmt" count="2"/>
+        <line num="14" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="16" type="stmt" count="2"/>
+        <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+      </file>
+      <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/InvalidServiceIdFormat.php">
+        <class name="Pedros80\RTTphp\Exceptions\InvalidServiceIdFormat" namespace="Pedros80\RTTphp\Exceptions">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        </class>
+        <line num="9" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="1"/>
+        <line num="11" type="stmt" count="1"/>
+        <line num="14" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="16" type="stmt" count="1"/>
+        <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+      </file>
+      <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/InvalidServiceResponse.php">
+        <class name="Pedros80\RTTphp\Exceptions\InvalidServiceResponse" namespace="Pedros80\RTTphp\Exceptions">
+          <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="9" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
+        <line num="11" type="stmt" count="0"/>
+        <line num="14" type="method" name="new" visibility="public" complexity="1" crap="2" count="0"/>
+        <line num="16" type="stmt" count="0"/>
+        <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/InvalidTimeFormat.php">
+        <class name="Pedros80\RTTphp\Exceptions\InvalidTimeFormat" namespace="Pedros80\RTTphp\Exceptions">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        </class>
+        <line num="9" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="1"/>
+        <line num="11" type="stmt" count="1"/>
+        <line num="14" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="16" type="stmt" count="1"/>
+        <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+      </file>
+      <file name="/home/runner/work/rttphp/rttphp/src/Exceptions/ServiceNotFound.php">
+        <class name="Pedros80\RTTphp\Exceptions\ServiceNotFound" namespace="Pedros80\RTTphp\Exceptions">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        </class>
+        <line num="9" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="4"/>
+        <line num="11" type="stmt" count="4"/>
+        <line num="14" type="method" name="fromUrl" visibility="public" complexity="1" crap="1" count="4"/>
+        <line num="16" type="stmt" count="4"/>
+        <metrics loc="19" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+      </file>
+    </package>
+    <package name="Pedros80\RTTphp\Factories">
+      <file name="/home/runner/work/rttphp/rttphp/src/Factories/ServicesFactory.php">
+        <class name="Pedros80\RTTphp\Factories\ServicesFactory" namespace="Pedros80\RTTphp\Factories">
+          <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="15" coveredelements="15"/>
+        </class>
+        <line num="16" type="method" name="makeClient" visibility="private" complexity="1" crap="1" count="2"/>
+        <line num="18" type="stmt" count="2"/>
+        <line num="20" type="stmt" count="2"/>
+        <line num="21" type="stmt" count="2"/>
+        <line num="22" type="stmt" count="2"/>
+        <line num="23" type="stmt" count="2"/>
+        <line num="24" type="stmt" count="2"/>
+        <line num="25" type="stmt" count="2"/>
+        <line num="26" type="stmt" count="2"/>
+        <line num="27" type="stmt" count="2"/>
+        <line num="28" type="stmt" count="2"/>
+        <line num="31" type="method" name="makeLocationService" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="33" type="stmt" count="1"/>
+        <line num="36" type="method" name="makeServiceInformationService" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="38" type="stmt" count="1"/>
+        <metrics loc="41" ncloc="41" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="15" coveredelements="15"/>
+      </file>
+    </package>
+    <package name="Pedros80\RTTphp\Services">
+      <file name="/home/runner/work/rttphp/rttphp/src/Services/LocationService.php">
+        <class name="Pedros80\RTTphp\Services\LocationService" namespace="Pedros80\RTTphp\Services">
+          <metrics complexity="7" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="11" coveredelements="11"/>
+        </class>
+        <line num="11" type="method" name="search" visibility="public" complexity="7" crap="7" count="15"/>
+        <line num="18" type="stmt" count="15"/>
+        <line num="20" type="stmt" count="15"/>
+        <line num="21" type="stmt" count="5"/>
+        <line num="24" type="stmt" count="15"/>
+        <line num="25" type="stmt" count="5"/>
+        <line num="27" type="stmt" count="5"/>
+        <line num="28" type="stmt" count="2"/>
+        <line num="32" type="stmt" count="13"/>
+        <line num="33" type="stmt" count="2"/>
+        <line num="36" type="stmt" count="13"/>
+        <metrics loc="39" ncloc="39" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="11" coveredelements="11"/>
+      </file>
+      <file name="/home/runner/work/rttphp/rttphp/src/Services/Service.php">
+        <class name="Pedros80\RTTphp\Services\Service" namespace="Pedros80\RTTphp\Services">
+          <metrics complexity="10" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="16" elements="22" coveredelements="20"/>
+        </class>
+        <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="22"/>
+        <line num="22" type="stmt" count="22"/>
+        <line num="24" type="method" name="get" visibility="protected" complexity="4" crap="4.02" count="16"/>
+        <line num="26" type="stmt" count="16"/>
+        <line num="27" type="stmt" count="16"/>
+        <line num="28" type="stmt" count="15"/>
+        <line num="31" type="stmt" count="15"/>
+        <line num="33" type="stmt" count="15"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="15"/>
+        <line num="38" type="stmt" count="4"/>
+        <line num="41" type="stmt" count="11"/>
+        <line num="44" type="method" name="getUrl" visibility="protected" complexity="1" crap="1" count="16"/>
+        <line num="46" type="stmt" count="16"/>
+        <line num="49" type="method" name="isDateFormatValid" visibility="protected" complexity="2" crap="2" count="10"/>
+        <line num="51" type="stmt" count="10"/>
+        <line num="52" type="stmt" count="2"/>
+        <line num="55" type="stmt" count="8"/>
+        <line num="58" type="method" name="isTimeFormatValid" visibility="protected" complexity="2" crap="2" count="3"/>
+        <line num="60" type="stmt" count="3"/>
+        <line num="61" type="stmt" count="1"/>
+        <line num="64" type="stmt" count="2"/>
+        <metrics loc="67" ncloc="63" classes="1" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="16" elements="22" coveredelements="20"/>
+      </file>
+      <file name="/home/runner/work/rttphp/rttphp/src/Services/ServiceInformationService.php">
+        <class name="Pedros80\RTTphp\Services\ServiceInformationService" namespace="Pedros80\RTTphp\Services">
+          <metrics complexity="4" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
+        </class>
+        <line num="12" type="method" name="search" visibility="public" complexity="2" crap="2" count="5"/>
+        <line num="14" type="stmt" count="5"/>
+        <line num="16" type="stmt" count="4"/>
+        <line num="18" type="stmt" count="4"/>
+        <line num="19" type="stmt" count="3"/>
+        <line num="22" type="stmt" count="3"/>
+        <line num="25" type="method" name="isServiceIdValid" visibility="private" complexity="2" crap="2" count="5"/>
+        <line num="27" type="stmt" count="5"/>
+        <line num="28" type="stmt" count="1"/>
+        <line num="31" type="stmt" count="4"/>
+        <metrics loc="34" ncloc="34" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="10" coveredelements="10"/>
+      </file>
+    </package>
+    <metrics files="11" loc="304" ncloc="300" classes="9" methods="21" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="54" elements="78" coveredelements="72"/>
   </project>
 </coverage>
