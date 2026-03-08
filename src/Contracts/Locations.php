@@ -11,6 +11,6 @@ interface Locations
         ?string $toStation=null,
         ?string $date=null,
         ?string $time=null,
-        bool $arrivals=false
+        bool $arrivals=false,
     ): stdClass;
 }

@@ -11,40 +11,51 @@ use Pedros80\RTTphp\Exceptions\ServiceNotFound;
 use Pedros80\RTTphp\Services\LocationService;
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
+use Prophecy\Prophecy\ObjectProphecy;
 
 final class LocationServiceTest extends TestCase
 {
     use ProphecyTrait;
 
+    /** @var ObjectProphecy<Client> $client */
+    private ObjectProphecy $client;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->client = $this->prophesize(Client::class);
+    }
+
     public function testSearchStationHitsCorrectEndpoint(): void
     {
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/KDY')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
-        $service = new LocationService($client->reveal());
+        $this->client->get('json/search/KDY')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+
+        $service = $this->makeLocationService();
         $service->search('KDY');
     }
 
     public function testSearchStationArrivalsHitsCorrectEndpoint(): void
     {
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/KDY/arrivals')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
-        $service = new LocationService($client->reveal());
+        $this->client->get('json/search/KDY/arrivals')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+
+        $service = $this->makeLocationService();
         $service->search(station: 'KDY', arrivals: true);
     }
 
     public function testSearchStationWithToStationHitsCorrectEndpoint(): void
     {
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/KDY/to/DAM')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
-        $service = new LocationService($client->reveal());
+        $this->client->get('json/search/KDY/to/DAM')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+
+        $service = $this->makeLocationService();
         $service->search('KDY', 'DAM');
     }
 
     public function testSearchStationWithToStationArrivalsHitsCorrectEndpoint(): void
     {
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/KDY/to/DAM/arrivals')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
-        $service = new LocationService($client->reveal());
+        $this->client->get('json/search/KDY/to/DAM/arrivals')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+
+        $service = $this->makeLocationService();
         $service->search(station: 'KDY', toStation: 'DAM', arrivals: true);
     }
 
@@ -53,7 +64,7 @@ final class LocationServiceTest extends TestCase
         $this->expectException(InvalidDateFormat::class);
         $this->expectExceptionMessage("'2023-80-99' is not a valid date - yyyy/mm/dd");
 
-        $service = new LocationService($this->prophesize(Client::class)->reveal());
+        $service = $this->makeLocationService();
         $service->search(
             station: 'KDY',
             date: '2023-80-99'
@@ -65,7 +76,7 @@ final class LocationServiceTest extends TestCase
         $this->expectException(InvalidTimeFormat::class);
         $this->expectExceptionMessage("'9999' is not a valid time - hhmm");
 
-        $service = new LocationService($this->prophesize(Client::class)->reveal());
+        $service = $this->makeLocationService();
         $service->search(
             station: 'KDY',
             date: '2023/08/19',
@@ -75,9 +86,9 @@ final class LocationServiceTest extends TestCase
 
     public function testSearchStationWithValidDateAndNoTimeHitsCorrectEndpoint(): void
     {
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/KDY/2023/08/19')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
-        $service = new LocationService($client->reveal());
+        $this->client->get('json/search/KDY/2023/08/19')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+
+        $service = $this->makeLocationService();
         $service->search(
             station: 'KDY',
             date: '2023/08/19',
@@ -86,9 +97,9 @@ final class LocationServiceTest extends TestCase
 
     public function testSearchStationWithValidDateAndTimeHitsCorrectEndpoint(): void
     {
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/KDY/2023/08/19/2345')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
-        $service = new LocationService($client->reveal());
+        $this->client->get('json/search/KDY/2023/08/19/2345')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+
+        $service = $this->makeLocationService();
         $service->search(
             station: 'KDY',
             date: '2023/08/19',
@@ -98,9 +109,9 @@ final class LocationServiceTest extends TestCase
 
     public function testSearchStationWithTimeAndNoDateIsIgnored(): void
     {
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/KDY')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
-        $service = new LocationService($client->reveal());
+        $this->client->get('json/search/KDY')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+
+        $service = $this->makeLocationService();
         $service->search(
             station: 'KDY',
             time: '9999'
@@ -109,9 +120,9 @@ final class LocationServiceTest extends TestCase
 
     public function testSearchStationToStationWithValidDateAndNoTimeHitsCorrectEndpoint(): void
     {
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/KDY/to/DAM/2023/08/19')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
-        $service = new LocationService($client->reveal());
+        $this->client->get('json/search/KDY/to/DAM/2023/08/19')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+
+        $service = $this->makeLocationService();
         $service->search(
             station: 'KDY',
             toStation: 'DAM',
@@ -121,9 +132,9 @@ final class LocationServiceTest extends TestCase
 
     public function testSearchStationToStationWithValidDateAndTimeHitsCorrectEndpoint(): void
     {
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/KDY/to/DAM/2023/08/19/2345')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
-        $service = new LocationService($client->reveal());
+        $this->client->get('json/search/KDY/to/DAM/2023/08/19/2345')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+
+        $service = $this->makeLocationService();
         $service->search(
             station: 'KDY',
             toStation: 'DAM',
@@ -134,9 +145,9 @@ final class LocationServiceTest extends TestCase
 
     public function testSearchStationToStationWithTimeAndNoDateIsIgnored(): void
     {
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/KDY/to/DAM')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
-        $service = new LocationService($client->reveal());
+        $this->client->get('json/search/KDY/to/DAM')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+
+        $service = $this->makeLocationService();
         $service->search(
             station: 'KDY',
             time: '9999',
@@ -149,9 +160,9 @@ final class LocationServiceTest extends TestCase
         $this->expectException(ServiceNotFound::class);
         $this->expectExceptionMessage("Could not find service from 'json/search/XXXXXX'. Please check url.");
 
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/XXXXXX')->shouldBeCalled()->willReturn(new Response(404, [], '{}'));
-        $service = new LocationService($client->reveal());
+        $this->client->get('json/search/XXXXXX')->shouldBeCalled()->willReturn(new Response(404, [], '{}'));
+
+        $service = $this->makeLocationService();
         $service->search(
             station: 'XXXXXX',
         );
@@ -162,11 +173,11 @@ final class LocationServiceTest extends TestCase
         $this->expectException(ServiceNotFound::class);
         $this->expectExceptionMessage("Could not find service from 'json/search/XXXXXX'. Please check url.");
 
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/XXXXXX')->shouldBeCalled()->willReturn(
+        $this->client->get('json/search/XXXXXX')->shouldBeCalled()->willReturn(
             new Response(200, [], '{"error":"Unknown error"}')
         );
-        $service = new LocationService($client->reveal());
+
+        $service = $this->makeLocationService();
         $service->search(
             station: 'XXXXXX',
         );
@@ -176,9 +187,14 @@ final class LocationServiceTest extends TestCase
     {
         $this->expectException(Exception::class);
 
-        $client = $this->prophesize(Client::class);
-        $client->get('json/search/KDY')->shouldBeCalled()->willThrow(new Exception('error', 500));
-        $service = new LocationService($client->reveal());
+        $this->client->get('json/search/KDY')->shouldBeCalled()->willThrow(new Exception('error', 500));
+
+        $service = $this->makeLocationService();
         $service->search(station: 'KDY');
+    }
+
+    private function makeLocationService(): LocationService
+    {
+        return new LocationService($this->client->reveal());
     }
 }

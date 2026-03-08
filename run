@@ -1,0 +1,18 @@
+#!/bin/bash
+
+RUN="$1"
+shift
+
+if [ "$RUN" = "composer" ]; then
+    docker compose run --rm php composer "$@"
+elif [ "$RUN" = "test" ]; then
+    docker compose run --rm php composer test
+elif [ "$RUN" = "stan" ]; then
+    docker compose run --rm php composer stan
+elif [ "$RUN" = "format" ]; then
+    docker compose run --rm php composer format
+elif [ "$RUN" = "bash" ]; then
+    docker compose run --rm php sh
+else
+    echo "unknown run - $RUN"
+fi

@@ -11,16 +11,27 @@ use Pedros80\RTTphp\Exceptions\ServiceNotFound;
 use Pedros80\RTTphp\Services\ServiceInformationService;
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
+use Prophecy\Prophecy\ObjectProphecy;
 
 final class ServiceInformationServiceTest extends TestCase
 {
     use ProphecyTrait;
 
+    /** @var ObjectProphecy<Client> $client */
+    private ObjectProphecy $client;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->client = $this->prophesize(Client::class);
+    }
+
     public function testSearchServiceHitsCorrectEndpoint(): void
     {
-        $client = $this->prophesize(Client::class);
-        $client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
-        $service = new ServiceInformationService($client->reveal());
+        $this->client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(new Response(200, [], '{}'));
+
+        $service = $this->makeServiceInformationService();
         $service->search('Y29995', '2023/08/19');
     }
 
@@ -29,7 +40,7 @@ final class ServiceInformationServiceTest extends TestCase
         $this->expectException(InvalidServiceIdFormat::class);
         $this->expectExceptionMessage("'INVALID' is not a valid service id - [A-Z][0-9]{5}");
 
-        $service = new ServiceInformationService($this->prophesize(Client::class)->reveal());
+        $service = $this->makeServiceInformationService();
         $service->search('INVALID', '2023/08/19');
     }
 
@@ -38,7 +49,7 @@ final class ServiceInformationServiceTest extends TestCase
         $this->expectException(InvalidDateFormat::class);
         $this->expectExceptionMessage("'2023-08-19' is not a valid date - yyyy/mm/dd");
 
-        $service = new ServiceInformationService($this->prophesize(Client::class)->reveal());
+        $service = $this->makeServiceInformationService();
         $service->search('Y29995', '2023-08-19');
     }
 
@@ -47,9 +58,9 @@ final class ServiceInformationServiceTest extends TestCase
         $this->expectException(ServiceNotFound::class);
         $this->expectExceptionMessage("Could not find service from 'json/service/Y29995/2023/08/19'. Please check url.");
 
-        $client = $this->prophesize(Client::class);
-        $client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(new Response(404, [], '{}'));
-        $service = new ServiceInformationService($client->reveal());
+        $this->client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(new Response(404, [], '{}'));
+
+        $service = $this->makeServiceInformationService();
         $service->search(
             serviceId: 'Y29995',
             date: '2023/08/19'
@@ -61,9 +72,9 @@ final class ServiceInformationServiceTest extends TestCase
         $this->expectException(InvalidServiceResponse::class);
         $this->expectExceptionMessage('Invalid Service Response - could not decode to object');
 
-        $client = $this->prophesize(Client::class);
-        $client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(new Response(200, [], 'invalid-json'));
-        $service = new ServiceInformationService($client->reveal());
+        $this->client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(new Response(200, [], 'invalid-json'));
+
+        $service = $this->makeServiceInformationService();
         $service->search(
             serviceId: 'Y29995',
             date: '2023/08/19'
@@ -75,14 +86,19 @@ final class ServiceInformationServiceTest extends TestCase
         $this->expectException(ServiceNotFound::class);
         $this->expectExceptionMessage("Could not find service from 'json/service/Y29995/2023/08/19'. Please check url.");
 
-        $client = $this->prophesize(Client::class);
-        $client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(
+        $this->client->get('json/service/Y29995/2023/08/19')->shouldBeCalled()->willReturn(
             new Response(200, [], '{"error":"Unknown error"}')
         );
-        $service = new ServiceInformationService($client->reveal());
+
+        $service = $this->makeServiceInformationService();
         $service->search(
             serviceId: 'Y29995',
             date: '2023/08/19'
         );
+    }
+
+    private function makeServiceInformationService(): ServiceInformationService
+    {
+        return new ServiceInformationService($this->client->reveal());
     }
 }

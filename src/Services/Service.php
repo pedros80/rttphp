@@ -3,6 +3,7 @@
 namespace Pedros80\RTTphp\Services;
 
 use GuzzleHttp\Client;
+use JsonException;
 use Pedros80\RTTphp\Exceptions\InvalidDateFormat;
 use Pedros80\RTTphp\Exceptions\InvalidServiceResponse;
 use Pedros80\RTTphp\Exceptions\InvalidTimeFormat;
@@ -17,7 +18,7 @@ abstract class Service
     protected array $url = [];
 
     public function __construct(
-        protected Client $client
+        protected Client $client,
     ) {
     }
 
@@ -27,10 +28,13 @@ abstract class Service
         $response = $this->client->get($url);
         $status   = $response->getStatusCode();
 
-        /** @var stdClass $body */
-        $body = json_decode($response->getBody(), false);
+        try {
+            $body = json_decode((string) $response->getBody(), false, 512, JSON_THROW_ON_ERROR);
+        } catch (JsonException) {
+            throw InvalidServiceResponse::new();
+        }
 
-        if (!is_object($body)) {
+        if (!$body instanceof stdClass) {
             throw InvalidServiceResponse::new();
         }
 

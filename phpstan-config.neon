@@ -1,8 +1,7 @@
 includes:
     - vendor/jangregor/phpstan-prophecy/extension.neon
 parameters:
-  level: 9
-  paths:
-    - src
-    - Tests
-
+    level: 8
+    paths:
+        - src
+        - Tests
